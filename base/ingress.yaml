@@ -5,6 +5,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx  # ✅ 추가해야 함
   rules:
     - host: host.com
       http:
@@ -15,4 +16,4 @@ spec:
               service:
                 name: nginx
                 port:
-                  number: 80  # ✅ 필수! (nginx 서비스의 포트)
+                  number: 80
