@@ -1,0 +1,16 @@
+# overlays/dev/patchDeployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: api-server
+    spec:
+      containers:
+        - name: api-server
+          image: springboot-exam:0.0.1 # 실제 배포될 Application 이미지로 수정해줬습니다.
+          ports:
+            - containerPort: 8080
