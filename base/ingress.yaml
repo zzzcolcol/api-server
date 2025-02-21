@@ -1,11 +1,4 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ingress-nginx
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx  # ✅ 추가해야 함
   rules:
     - host: host.com
       http:
@@ -14,6 +7,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nginx
+                name: api-server  # ✅ 존재하는 서비스 참조
                 port:
-                  number: 80
+                  number: 8080  # ✅ 실제 `api-server`의 포트 (8080)
